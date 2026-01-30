@@ -14,7 +14,6 @@ from deep_translator import GoogleTranslator
 # =========================
 st.set_page_config(
     page_title="Cinéma Creuse - Plateforme Complète",
-    page_icon="🎬",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -212,12 +211,12 @@ def get_recommendations(title, df, sig):
 # SIDEBAR - MENU DE NAVIGATION
 # =========================
 
-st.sidebar.title("🎬 Navigation")
+st.sidebar.title("Navigation")
 st.sidebar.markdown("---")
 
 menu = st.sidebar.radio(
     "Choisissez une section :",
-    ["🏠 Accueil", "📊 Étude de Marché", "📈 KPI Stratégiques", "🎥 Recommandation de Films"]
+    ["Accueil", "Étude de Marché", "KPI Stratégiques", "Recommandation de Films"]
 )
 
 st.sidebar.markdown("---")
@@ -233,8 +232,8 @@ Plateforme d'analyse et de recommandation pour le cinéma en Creuse.
 # PAGE D'ACCUEIL
 # =========================
 
-if menu == "🏠 Accueil":
-    st.title("🎬 Plateforme Cinéma Creuse")
+if menu == "Accueil":
+    st.title("Plateforme Cinéma Creuse")
     st.markdown("### Votre outil complet d'analyse et de recommandation")
     
     st.markdown("---")
@@ -243,7 +242,7 @@ if menu == "🏠 Accueil":
     
     with col1:
         st.markdown("""
-        ### 📊 Étude de Marché
+        ### Étude de Marché
         
         Analyse complète du marché du cinéma dans la Creuse :
         - Démographie INSEE
@@ -254,7 +253,7 @@ if menu == "🏠 Accueil":
         
     with col2:
         st.markdown("""
-        ### 📈 KPI Stratégiques
+        ### KPI Stratégiques
         
         Indicateurs clés de performance :
         - Comparaison Creuse vs National
@@ -265,7 +264,7 @@ if menu == "🏠 Accueil":
         
     with col3:
         st.markdown("""
-        ### 🎥 Recommandation
+        ### Recommandation
         
         Système intelligent de recommandation :
         - Base de données complète
@@ -277,7 +276,7 @@ if menu == "🏠 Accueil":
     st.markdown("---")
     
     st.success("""
-    💡 **Comment utiliser cette plateforme ?**
+        **Comment utiliser cette plateforme ?**
     
     1. **Étude de Marché** : Consultez les analyses démographiques et de fréquentation
     2. **KPI Stratégiques** : Visualisez les indicateurs clés pour la prise de décision
@@ -290,8 +289,8 @@ if menu == "🏠 Accueil":
 # PAGE ÉTUDE DE MARCHÉ
 # =========================
 
-elif menu == "📊 Étude de Marché":
-    st.title("📊 Étude de Marché : Cinéma en Creuse")
+elif menu == "Étude de Marché":
+    st.title("Étude de Marché : Cinéma en Creuse")
     st.markdown("---")
     
     # Chargement des données
@@ -301,14 +300,14 @@ elif menu == "📊 Étude de Marché":
     # Sous-menu
     section = st.radio(
         "Navigation :",
-        ["🏠 Vue d'ensemble", "👥 Démographie INSEE", "🎟️ Fréquentation Cinémas",
-         "🎭 Préférences & Tendances", "📈 Analyses Approfondies"],
+        ["Vue d'ensemble", "Démographie INSEE", "Fréquentation Cinémas",
+         "Préférences & Tendances", "Analyses Approfondies"],
         horizontal=True
     )
     
     # VUE D'ENSEMBLE
-    if section == "🏠 Vue d'ensemble":
-        st.header("📊 Tableau de Bord - Vue d'Ensemble")
+    if section == "Vue d'ensemble":
+        st.header("Tableau de Bord - Vue d'Ensemble")
         
         col1, col2, col3, col4 = st.columns(4)
         with col1:
@@ -328,7 +327,7 @@ elif menu == "📊 Étude de Marché":
         col1, col2 = st.columns(2)
         
         with col1:
-            st.subheader("🎟️ Fréquentation par Cinéma (2024)")
+            st.subheader("Fréquentation par Cinéma (2024)")
             fig = px.bar(df_freq_creuse.sort_values('Entrées_2024', ascending=True),
                         x='Entrées_2024', y='Cinema', orientation='h',
                         color='Entrées_2024', color_continuous_scale='Teal', text='Entrées_2024')
@@ -337,14 +336,14 @@ elif menu == "📊 Étude de Marché":
             st.plotly_chart(fig, use_container_width=True)
         
         with col2:
-            st.subheader("👥 Structure de la Population")
+            st.subheader("Structure de la Population")
             fig = px.pie(df_population, values='Population', names='Tranche_age', hole=0.4,
                         color_discrete_sequence=px.colors.qualitative.Set3)
             fig.update_traces(textposition='inside', textinfo='percent+label')
             fig.update_layout(height=400)
             st.plotly_chart(fig, use_container_width=True)
         
-        st.subheader("📈 Évolution de la Fréquentation Nationale")
+        st.subheader("Évolution de la Fréquentation Nationale")
         fig = go.Figure()
         fig.add_trace(go.Scatter(x=df_freq_nat['Année'], y=df_freq_nat['Entrées_millions'],
                                 mode='lines+markers', name='Entrées (millions)',
@@ -354,10 +353,10 @@ elif menu == "📊 Étude de Marché":
         st.plotly_chart(fig, use_container_width=True)
     
     # DÉMOGRAPHIE INSEE
-    elif section == "👥 Démographie INSEE":
-        st.header("👥 Analyse Démographique - Données INSEE")
+    elif section == "Démographie INSEE":
+        st.header("Analyse Démographique - Données INSEE")
         
-        tab1, tab2, tab3, tab4 = st.tabs(["📊 Population", "💰 Revenus", "👔 CSP", "🌐 Internet"])
+        tab1, tab2, tab3, tab4 = st.tabs(["Population", "Revenus", "CSP", "Internet"])
         
         with tab1:
             st.subheader("Structure par Âge de la Population - Creuse 2023")
@@ -449,10 +448,10 @@ elif menu == "📊 Étude de Marché":
                 st.plotly_chart(fig, use_container_width=True)
     
     # FRÉQUENTATION CINÉMAS
-    elif section == "🎟️ Fréquentation Cinémas":
-        st.header("🎟️ Analyse de la Fréquentation des Cinémas")
+    elif section == "Fréquentation Cinémas":
+        st.header("Analyse de la Fréquentation des Cinémas")
         
-        tab1, tab2, tab3 = st.tabs(["🎬 Creuse", "🇫🇷 National", "📅 Saisonnalité"])
+        tab1, tab2, tab3 = st.tabs(["Creuse", "National", "Saisonnalité"])
         
         with tab1:
             st.subheader("Cinémas de la Creuse - Données 2024")
@@ -539,10 +538,10 @@ elif menu == "📊 Étude de Marché":
             """)
     
     # PRÉFÉRENCES & TENDANCES
-    elif section == "🎭 Préférences & Tendances":
-        st.header("🎭 Préférences de Genres & Tendances du Marché")
+    elif section == "Préférences & Tendances":
+        st.header("Préférences de Genres & Tendances du Marché")
         
-        tab1, tab2 = st.tabs(["🎬 Genres", "⭐ Top Films 2024"])
+        tab1, tab2 = st.tabs(["Genres", "Top Films 2024"])
         
         with tab1:
             st.subheader("Préférences de Genres par Segment de Public")
@@ -566,7 +565,7 @@ elif menu == "📊 Étude de Marché":
                                                     y=1.02, xanchor="right", x=1))
             st.plotly_chart(fig, use_container_width=True)
             
-            st.subheader("📊 Analyse Détaillée par Genre")
+            st.subheader("Analyse Détaillée par Genre")
             df_display = df_genres[['Genre', 'Preference_jeunes_%', 'Preference_seniors_%',
                                    'Preference_familles_%', 'Moyenne_%']].copy()
             df_display.columns = ['Genre', 'Jeunes', 'Seniors', 'Familles', 'Moyenne']
@@ -583,7 +582,7 @@ elif menu == "📊 Étude de Marché":
             """)
         
         with tab2:
-            st.subheader("⭐ Top 10 Films 2024 en France")
+            st.subheader("Top 10 Films 2024 en France")
             col1, col2 = st.columns([2, 1])
             
             with col1:
@@ -600,7 +599,7 @@ elif menu == "📊 Étude de Marché":
                 st.dataframe(df_top_films[['Film', 'Genre', 'Entrées_millions', 'Type']],
                            hide_index=True, use_container_width=True)
             
-            st.subheader("📊 Répartition par Origine")
+            st.subheader("Répartition par Origine")
             col1, col2 = st.columns(2)
             
             with col1:
@@ -623,14 +622,14 @@ elif menu == "📊 Étude de Marché":
     elif section == "📈 Analyses Approfondies":
         st.header("📈 Analyses Approfondies & Recommandations")
         
-        tab1, tab2 = st.tabs(["🎯 Synthèse", "💡 Recommandations"])
+        tab1, tab2 = st.tabs(["Synthèse", "Recommandations"])
         
         with tab1:
-            st.subheader("🎯 Synthèse de l'Étude de Marché")
+            st.subheader("Synthèse de l'Étude de Marché")
             col1, col2 = st.columns(2)
             
             with col1:
-                st.markdown("### 👥 Profil Démographique")
+                st.markdown("### Profil Démographique")
                 st.info(f"""
                 - Population : **{df_population['Population'].sum():,}** habitants
                 - 60+ ans : **44.7%** (vieillissement marqué)
@@ -639,7 +638,7 @@ elif menu == "📊 Étude de Marché":
                 - Retraités : **39.7%** de la population active
                 """)
                 
-                st.markdown("### 🎬 Marché Cinéma")
+                st.markdown("### Marché Cinéma")
                 st.success(f"""
                 - **{len(df_freq_creuse)}** cinémas actifs
                 - **{df_freq_creuse['Nb_salles'].sum()}** salles au total
@@ -649,7 +648,7 @@ elif menu == "📊 Étude de Marché":
                 """)
             
             with col2:
-                st.markdown("### 🎭 Préférences Culturelles")
+                st.markdown("### Préférences Culturelles")
                 top_3_genres = df_genres.nlargest(3, 'Moyenne_%')
                 st.warning(f"""
                 **Top 3 Genres (moyenne) :**
@@ -660,7 +659,7 @@ elif menu == "📊 Étude de Marché":
                 **Films français** : forte performance (3 dans le top 10)
                 """)
                 
-                st.markdown("### 📅 Saisonnalité")
+                st.markdown("### Saisonnalité")
                 best_month = df_saison.loc[df_saison['Indice_freq'].idxmax()]
                 worst_month = df_saison.loc[df_saison['Indice_freq'].idxmin()]
                 st.info(f"""
@@ -670,14 +669,14 @@ elif menu == "📊 Étude de Marché":
                 """)
         
         with tab2:
-            st.subheader("💡 Recommandations Stratégiques")
-            st.markdown("### 🎯 Positionnement & Programmation")
+            st.subheader("Recommandations Stratégiques")
+            st.markdown("### Positionnement & Programmation")
             
             col1, col2 = st.columns(2)
             
             with col1:
                 st.markdown("""
-                #### ✅ Opportunités
+                #### Opportunités
                 
                 **1. Cibler la population senior (44.7% de 60+)**
                 - Séances matinales
@@ -698,7 +697,7 @@ elif menu == "📊 Étude de Marché":
             
             with col2:
                 st.markdown("""
-                #### ⚠️ Défis à Relever
+                #### Défis à Relever
                 
                 **1. Contraintes économiques**
                 - Revenu médian inférieur (-17.6%)
@@ -717,15 +716,15 @@ elif menu == "📊 Étude de Marché":
                 - Qualité audio/vidéo supérieure
                 """)
             
-            st.markdown("### 🎬 Programmation Recommandée")
+            st.markdown("### Programmation Recommandée")
             st.success("""
             **Mix idéal adapté à la Creuse :**
             
-            - 🎭 **35%** : Comédies (tous publics, forte demande)
-            - 🎨 **25%** : Comédies dramatiques & Drames (seniors)
-            - 👨‍👩‍👧‍👦 **20%** : Animations (familles, vacances)
-            - 🎬 **15%** : Cinéma français d'auteur
-            - 🌟 **5%** : Blockbusters internationaux
+            - **35%** : Comédies (tous publics, forte demande)
+            - **25%** : Comédies dramatiques & Drames (seniors)
+            - **20%** : Animations (familles, vacances)
+            - **15%** : Cinéma français d'auteur
+            - **5%** : Blockbusters internationaux
             
             **Stratégie saisonnière :**
             - Janvier-Mars : Drames, films d'auteur
@@ -739,8 +738,8 @@ elif menu == "📊 Étude de Marché":
 # PAGE KPI STRATÉGIQUES
 # =========================
 
-elif menu == "📈 KPI Stratégiques":
-    st.title("📈 Dashboard Stratégique : Cinéma en Creuse (23)")
+elif menu == "KPI Stratégiques":
+    st.title("Dashboard Stratégique : Cinéma en Creuse (23)")
     
     # Initialisation
     cnc = CNCDataExtractor()
@@ -766,27 +765,27 @@ elif menu == "📈 KPI Stratégiques":
     col_a, col_b = st.columns(2)
     
     with col_a:
-        st.subheader("👥 Profil Démographique (Creuse)")
+        st.subheader("Profil Démographique (Creuse)")
         fig_pop = px.pie(df_pop, values='Pourcentage', names='Tranche_age', hole=0.4,
                          title="Répartition de la population par âge",
                          color_discrete_sequence=px.colors.sequential.Blues_r)
         st.plotly_chart(fig_pop, use_container_width=True)
     
     with col_b:
-        st.subheader("📊 Comparatif Marché")
+        st.subheader("Comparatif Marché")
         fig_bar = px.bar(df_creuse, x='Catégorie', y='Part de marché (%)', color='Entité',
                          barmode='group', text_auto=True, title="Creuse vs Moyenne Nationale")
         st.plotly_chart(fig_bar, use_container_width=True)
     
     # Ligne 3 : Top 10
-    st.subheader("🏆 Top 10 Box-Office 2024")
+    st.subheader("Top 10 Box-Office 2024")
     fig_h = px.bar(df_top, x='Entrées_millions', y='Film', color='Type', orientation='h',
                    title="Succès Nationaux (Potentiel Creuse)",
                    color_discrete_map={'Français': '#003366', 'US': '#6699CC', 'Autres': "#999999"})
     st.plotly_chart(fig_h, use_container_width=True)
     
     st.success("""
-    **💡 Note pour l'algorithme de recommandation :**
+    **Note pour l'algorithme de recommandation :**
     Le public creusois est majoritairement âgé de plus de 45 ans (64.1% de la population). 
     Cela explique la corrélation entre les KPIs du CNC (succès des films Français et Art & Essai) 
     et la démographie INSEE. Priorisez les genres 'Comédie Dramatique' et 'Drame' dans vos suggestions.
@@ -796,8 +795,8 @@ elif menu == "📈 KPI Stratégiques":
 # PAGE RECOMMANDATION DE FILMS
 # =========================
 
-elif menu == "🎥 Recommandation de Films":
-    st.title("🎬 Movie Finder & Recommender")
+elif menu == "Recommandation de Films":
+    st.title("Movie Finder & Recommender")
     
     # Chargement des données
     df = load_movie_data()
@@ -828,11 +827,11 @@ elif menu == "🎥 Recommandation de Films":
         
         with col_det:
             st.header(movie_info['Titre'])
-            st.subheader(f"📅 Année : {int(movie_info['Année_de_Sortie']) if pd.notnull(movie_info['Année_de_Sortie']) else 'N/A'}")
+            st.subheader(f"Année : {int(movie_info['Année_de_Sortie']) if pd.notnull(movie_info['Année_de_Sortie']) else 'N/A'}")
             
             m1, m2, m3 = st.columns(3)
-            m1.metric("Note", f"⭐ {movie_info['Note']}/10")
-            m2.metric("Durée", f"⏱️ {movie_info['Durée']} min")
+            m1.metric("Note", f" {movie_info['Note']}/10")
+            m2.metric("Durée", f" {movie_info['Durée']} min")
             
             st.write(f"**Genre :** {movie_info['Genre']}")
             st.write(f"**Réalisateur :** {movie_info['Réalisateur']}")
@@ -862,7 +861,7 @@ elif menu == "🎥 Recommandation de Films":
                 
                 st.image(r_img_url, use_container_width=True)
                 st.write(f"**{row['Titre']}**")
-                st.caption(f"⭐ Note: {row['Note']} | {int(row['Année_de_Sortie']) if pd.notnull(row['Année_de_Sortie']) else ''}")
+                st.caption(f"Note: {row['Note']} | {int(row['Année_de_Sortie']) if pd.notnull(row['Année_de_Sortie']) else ''}")
                 
                 with st.expander("Lire le synopsis"):
                     st.write(traduire_en_francais(row['Synopsis']))
@@ -874,9 +873,10 @@ elif menu == "🎥 Recommandation de Films":
 st.markdown("---")
 st.markdown("""
 <div style='text-align: center; color: #888;'>
-    <p>🎬 Plateforme Cinéma Creuse 2024</p>
+    <p>Plateforme Cinéma Creuse 2024</p>
     <p>Sources : INSEE, CNC, TMDB | Développé avec Streamlit</p>
 </div>
 
 """, unsafe_allow_html=True)
+
 
