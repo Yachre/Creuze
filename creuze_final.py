@@ -107,7 +107,7 @@ class CNCDataExtractor:
 @st.cache_data
 def load_movie_data():
     """Charge les données pour le système de recommandation"""
-    df = pd.read_csv(r'C:\Users\Consultant\Desktop\creuze_project\Database_finale.csv')
+    df = pd.read_csv('https://github.com/Yachre/Creuze/blob/main/Database_finale.csv')
     columns_to_combine = ['Genre', 'Réalisateur', 'Acteur', 'Actrice', 'Synopsis']
     for col in columns_to_combine:
         df[col] = df[col].fillna('')
@@ -877,4 +877,5 @@ st.markdown("""
     <p>🎬 Plateforme Cinéma Creuse 2024</p>
     <p>Sources : INSEE, CNC, TMDB | Développé avec Streamlit</p>
 </div>
+
 """, unsafe_allow_html=True)
