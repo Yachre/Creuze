@@ -107,7 +107,7 @@ class CNCDataExtractor:
 @st.cache_data
 def load_movie_data():
     """Charge les données pour le système de recommandation"""
-    df = pd.read_csv('https://github.com/Yachre/Creuze/blob/main/Database_finale.csv')
+    df = pd.read_csv('https://raw.githubusercontent.com/Yachre/Creuze/refs/heads/main/Database_finale.csv')
     columns_to_combine = ['Genre', 'Réalisateur', 'Acteur', 'Actrice', 'Synopsis']
     for col in columns_to_combine:
         df[col] = df[col].fillna('')
@@ -879,3 +879,4 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
