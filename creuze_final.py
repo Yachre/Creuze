@@ -922,8 +922,8 @@ elif menu == "Recommandation de Films":
                 
                 st.image(r_img_url, use_container_width=True)
                 st.write(f"**{row['Titre']}**")
-                st.write(f"**Genre :** {traduire_en_francais(movie_info['Genre'])}")
-                st.write(f"**Réalisateur :** {movie_info['Réalisateur']}")
+                st.write(f"**Genre :** {traduire_en_francais(row['Genre'])}")
+                st.write(f"**Réalisateur :** {row['Réalisateur']}")
                 st.caption(f"Note: {row['Note']} | {int(row['Année_de_Sortie']) if pd.notnull(row['Année_de_Sortie']) else ''}")
                 
                 with st.expander("Lire le synopsis"):
@@ -939,4 +939,5 @@ st.markdown("""
     <p>Plateforme Cinéma Creuse 2024</p>
     <p>Sources : INSEE, CNC, TMDB | Développé avec Streamlit</p>
 </div>
+
 """, unsafe_allow_html=True)
