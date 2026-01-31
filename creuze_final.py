@@ -915,7 +915,7 @@ elif menu == "Recommandation de Films":
                 r_path = row['Affiche_de_Film']
                 path_str = str(r_path).strip().lower()
                 
-                if pd.notnull(r_path) and path_str != "" and "unknow" not in path_str:
+                if pd.notnull(r_path) and path_str != "" and "unknown" not in path_str:
                     r_img_url = base_url + str(r_path)
                 else:
                     r_img_url = placeholder_url
@@ -941,4 +941,5 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
