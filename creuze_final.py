@@ -924,7 +924,7 @@ elif menu == "Recommandation de Films":
                 st.write(f"**{row['Titre']}**")
                 st.write(f"**Genre :** {traduire_en_francais(row['Genre'])}")
                 st.write(f"**Réalisateur :** {row['Réalisateur']}")
-                st.caption(f"Note: {row['Note']} | {int(row['Année_de_Sortie']) if pd.notnull(row['Année_de_Sortie']) else ''}")
+                st.caption(f"Note: {row['Note']:.2f} | {int(row['Année_de_Sortie']) if pd.notnull(row['Année_de_Sortie']) else ''}")
                 
                 with st.expander("Lire le synopsis"):
                     st.write(traduire_en_francais(row['Synopsis']))
@@ -941,3 +941,4 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
