@@ -104,7 +104,7 @@ st.markdown("""
         /* Toutes les images Streamlit */
     img {
         width: 100% !important;
-        height: 500px !important;      /* hauteur fixe */
+        height: 400px !important;      /* hauteur fixe */
         object-fit: cover !important;  /* recadrage propre */
         border-radius: 14px;
     }
@@ -941,5 +941,6 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
