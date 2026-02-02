@@ -842,11 +842,11 @@ elif menu == "KPI Stratégiques":
 
         st.markdown("### Composition Base de Donnée:")
         st.success("""
-                                **Films dans la Base de Donnée : 8126**
-
+                                
+            - **8126** : Films Base de Donnée
             - **4077** : Films Art et Essai
             - **2940** : Films Français 
-            - **1109** : Blockbuster Américain
+            - **1109** : Blockbusters Américains
             """)
 
 # =========================
@@ -938,6 +938,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
