@@ -829,14 +829,14 @@ elif menu == "KPI Stratégiques":
         st.subheader("Profil Démographique (Creuse)")
         fig_pop = px.pie(df_pop, values='Pourcentage', names='Tranche_age', hole=0.4,
                          title="Répartition de la population par âge",
-                         color_discrete_sequence=px.colors.sequential.Greens)
+                         color_discrete_sequence=px.colors.sequential.Green_r)
         st.plotly_chart(fig_pop, use_container_width=True)
     
     with col_b:
         st.subheader("Comparatif Marché")
         fig_bar = px.bar(df_creuse, x='Catégorie', y='Part de marché (%)', color='Entité',
                 barmode='group', text_auto=True, title="Creuse vs Moyenne Nationale",
-                color_discrete_sequence=['#2ecc71', '#27ae60'])
+                color_discrete_sequence=['#2E4A3F', '#A9FFB9'])
         st.plotly_chart(fig_bar, use_container_width=True)
 
 
@@ -939,6 +939,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
