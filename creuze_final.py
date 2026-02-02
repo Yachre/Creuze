@@ -849,12 +849,12 @@ elif menu == "KPI Stratégiques":
             - **1034** : Comédie Française
             """)
 
-st.success("""
-** Note pour l'algorithme de recommandation :**
-Le public creusois est majoritairement âgé de plus de 45 ans (64.1% de la population). 
-Cela explique la corrélation entre les KPIs du CNC (succès des films Français et Art & Essai) 
-et la démographie INSEE. Priorisez les genres 'Comédie Dramatique' et 'Drame' dans vos suggestions.
-""")
+    st.success("""
+    ** Note pour l'algorithme de recommandation :**
+    Le public creusois est majoritairement âgé de plus de 45 ans (64.1% de la population). 
+    Cela explique la corrélation entre les KPIs du CNC (succès des films Français et Art & Essai) 
+    et la démographie INSEE. Priorisez les genres 'Comédie Dramatique' et 'Drame' dans vos suggestions.
+    """)
 
 # =========================
 # PAGE RECOMMANDATION DE FILMS
@@ -945,6 +945,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
