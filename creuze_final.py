@@ -891,7 +891,7 @@ elif menu == "Recommandation de Films":
             st.subheader(f"Année : {int(movie_info['Année_de_Sortie']) if pd.notnull(movie_info['Année_de_Sortie']) else 'N/A'}")
             
             m1, m2, m3 = st.columns(3)
-            m1.metric("Note", f" {movie_info['Note']}/10")
+            m1.metric("Note", f" {movie_info['Note']:.1f}/10")
             m2.metric("Durée", f" {movie_info['Durée']} min")
             
             st.write(f"**Genre :** {traduire_en_francais(movie_info['Genre'])}")
@@ -924,7 +924,7 @@ elif menu == "Recommandation de Films":
                 st.write(f"**{row['Titre']}**")
                 st.write(f"**Genre :** {traduire_en_francais(row['Genre'])}")
                 st.write(f"**Réalisateur :** {row['Réalisateur']}")
-                st.caption(f"Note: {row['Note']:.2f} | {int(row['Année_de_Sortie']) if pd.notnull(row['Année_de_Sortie']) else ''}")
+                st.caption(f"Note: {row['Note']:.1f} | {int(row['Année_de_Sortie']) if pd.notnull(row['Année_de_Sortie']) else ''}")
                 
                 with st.expander("Lire le synopsis"):
                     st.write(traduire_en_francais(row['Synopsis']))
@@ -941,6 +941,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
