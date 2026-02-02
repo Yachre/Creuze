@@ -840,7 +840,7 @@ elif menu == "KPI Stratégiques":
         st.plotly_chart(fig_bar, use_container_width=True)
 
 
-        st.markdown("### Composition Base de Donnée:")
+        st.markdown("### Composition de la Base de Donnée")
         st.success("""
                                 
             - **8126** : Films Base de Donnée
@@ -938,6 +938,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
