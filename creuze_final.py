@@ -834,9 +834,9 @@ elif menu == "KPI Stratégiques":
     
     with col_b:
         st.subheader("Comparatif Marché")
-            fig_bar = px.bar(df_creuse, x='Catégorie', y='Part de marché (%)', color='Entité',
-            barmode='group', text_auto=True, title="Creuse vs Moyenne Nationale")
-            st.plotly_chart(fig_bar, use_container_width=True)
+        fig_bar = px.bar(df_creuse, x='Catégorie', y='Part de marché (%)', color='Entité',
+                barmode='group', text_auto=True, title="Creuse vs Moyenne Nationale")
+        st.plotly_chart(fig_bar, use_container_width=True)
 
 
         st.markdown("### Composition Base de Donnée:")
@@ -945,6 +945,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
