@@ -829,7 +829,7 @@ elif menu == "KPI Stratégiques":
         st.subheader("Profil Démographique (Creuse)")
         fig_pop = px.pie(df_pop, values='Pourcentage', names='Tranche_age', hole=0.4,
                          title="Répartition de la population par âge",
-                         color_discrete_sequence=px.colors.sequential.Blues_r)
+                         color_discrete_sequence=px.colors.sequential.Green_r)
         st.plotly_chart(fig_pop, use_container_width=True)
     
     with col_b:
@@ -841,20 +841,13 @@ elif menu == "KPI Stratégiques":
 
         st.markdown("### Composition Base de Donnée:")
         st.success("""
-            **composition base de donnée :**
+            **8126 Films dans la Base de Donnée :**
 
             - **4077** : Arts et Essai
             - **1906** : Films Français 
             - **1109** : Blockbuster Américain
             - **1034** : Comédie Française
             """)
-
-        st.success("""
-        ** Note pour l'algorithme de recommandation :**
-        Le public creusois est majoritairement âgé de plus de 45 ans (64.1% de la population). 
-        Cela explique la corrélation entre les KPIs du CNC (succès des films Français et Art & Essai) 
-        et la démographie INSEE. Priorisez les genres 'Comédie Dramatique' et 'Drame' dans vos suggestions.
-        """)
 
 # =========================
 # PAGE RECOMMANDATION DE FILMS
@@ -945,6 +938,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
