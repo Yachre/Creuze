@@ -425,7 +425,7 @@ elif menu == "Étude de Marché":
             
             with col1:
                 fig = px.bar(df_population, x='Pourcentage', y='Tranche_age', orientation='h',
-                            text='Pourcentage', color='Pourcentage', color_continuous_scale='Blues')
+                            text='Pourcentage', color='Pourcentage', color_continuous_scale='Greens')
                 fig.update_traces(texttemplate='%{text}%', textposition='outside')
                 fig.update_layout(xaxis_title="Pourcentage de la population (%)",
                                  yaxis_title="Tranche d'âge", showlegend=False, height=500)
@@ -939,6 +939,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
