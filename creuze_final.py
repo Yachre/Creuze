@@ -840,7 +840,7 @@ elif menu == "KPI Stratégiques":
 
 
         st.markdown("### Composition Base de Donnée:")
-            st.success("""
+        st.success("""
             **composition base de donnée :**
 
             - **4077** : Arts et Essai
@@ -945,6 +945,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
