@@ -839,11 +839,14 @@ elif menu == "KPI Stratégiques":
         st.plotly_chart(fig_bar, use_container_width=True)
     
     # Ligne 3 : Top 10
-    st.subheader("Top 10 Box-Office 2024")
-    fig_h = px.bar(df_top, x='Entrées_millions', y='Film', color='Type', orientation='h',
-                   title="Succès Nationaux (Potentiel Creuse)",
-                   color_discrete_map={'Français': '#003366', 'US': '#6699CC', 'Autres': "#999999"})
-    st.plotly_chart(fig_h, use_container_width=True)
+  st.markdown("### Programmation Recommandée")
+            st.success("""
+            **composition base de donnée :**
+            
+            - **4077** : Arts et Essai
+            - **1906** : Films Français 
+            - **1109** : Blockbuster Américain
+            - **1034** : Comédie Française
     
     st.success("""
     ** Note pour l'algorithme de recommandation :**
@@ -941,6 +944,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
