@@ -922,7 +922,7 @@ elif menu == "Recommandation de Films":
                 
                 st.image(r_img_url, use_container_width=True)
                 st.write(f"**{row['Titre']}**")
-                st.write(f"**Genre :** {traduire_en_francais(row['Genre'])}")
+                st.write(f"**Genre :** {traduire_en_francais(row['Genre'][:1])}")
                 st.write(f"**Réalisateur :** {row['Réalisateur']}")
                 st.caption(f"Note: {row['Note']:.2f} | {int(row['Année_de_Sortie']) if pd.notnull(row['Année_de_Sortie']) else ''}")
                 
@@ -941,6 +941,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
