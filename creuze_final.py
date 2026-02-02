@@ -823,32 +823,32 @@ elif menu == "KPI Stratégiques":
     st.divider()
     
     # Ligne 2 : Démographie
-col_a, col_b = st.columns(2)
+    col_a, col_b = st.columns(2)
 
-with col_a:
-    st.subheader("Profil Démographique (Creuse)")
-    fig_pop = px.pie(df_pop, values='Pourcentage', names='Tranche_age', hole=0.4,
+    with col_a:
+        st.subheader("Profil Démographique (Creuse)")
+        fig_pop = px.pie(df_pop, values='Pourcentage', names='Tranche_age', hole=0.4,
                      title="Répartition de la population par âge",
                      color_discrete_sequence=px.colors.sequential.Greens_r)
-    st.plotly_chart(fig_pop, use_container_width=True)
+        st.plotly_chart(fig_pop, use_container_width=True)
 
-with col_b:
-    st.subheader("Comparatif Marché")
-    fig_bar = px.bar(df_creuse, x='Catégorie', y='Part de marché (%)', color='Entité',
+    with col_b:
+        st.subheader("Comparatif Marché")
+        fig_bar = px.bar(df_creuse, x='Catégorie', y='Part de marché (%)', color='Entité',
             barmode='group', text_auto=True, title="Creuse vs Moyenne Nationale",
             color_discrete_sequence=['#2E4A3F', '#A9FFB9'])
-    st.plotly_chart(fig_bar, use_container_width=True)
+        st.plotly_chart(fig_bar, use_container_width=True)
 
 # Centrer la composition de la base de données
-st.markdown("### Composition de la Base de Données")
-col1, col2, col3 = st.columns([1, 2, 1])
-with col2:
-    st.success("""
-    - **8126** : Films Base de Données
-    - **4077** : Films Art et Essai
-    - **2940** : Films Français 
-    - **1109** : Blockbusters Américains
-    """)
+    st.markdown("### Composition de la Base de Données")
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        st.success("""
+        - **8126** : Films Base de Données
+        - **4077** : Films Art et Essai
+        - **2940** : Films Français 
+        - **1109** : Blockbusters Américains
+        """)
 
 # =========================
 # PAGE RECOMMANDATION DE FILMS
@@ -939,6 +939,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
