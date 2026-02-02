@@ -829,7 +829,7 @@ elif menu == "KPI Stratégiques":
         st.subheader("Profil Démographique (Creuse)")
         fig_pop = px.pie(df_pop, values='Pourcentage', names='Tranche_age', hole=0.4,
                          title="Répartition de la population par âge",
-                         color_discrete_sequence=px.colors.sequential.Green_r)
+                         color_discrete_sequence=px.colors.sequential.Greens_r)
         st.plotly_chart(fig_pop, use_container_width=True)
     
     with col_b:
@@ -939,6 +939,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
