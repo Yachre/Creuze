@@ -840,7 +840,7 @@ elif menu == "KPI Stratégiques":
         st.plotly_chart(fig_bar, use_container_width=True)
 
 # Centrer la composition de la base de données
-    st.markdown("### Composition de la Base de Données")
+    st.markdown("Composition de la Base de Données")
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.success("""
@@ -939,6 +939,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
