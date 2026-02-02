@@ -838,8 +838,8 @@ elif menu == "KPI Stratégiques":
                          barmode='group', text_auto=True, title="Creuse vs Moyenne Nationale")
         st.plotly_chart(fig_bar, use_container_width=True)
     
-    # Ligne 3 : Top 10
-    st.markdown("### Composition Base de Donnée:")
+    
+        st.markdown("### Composition Base de Donnée:")
             st.success("""
             **composition base de donnée :**
             
@@ -944,6 +944,7 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
